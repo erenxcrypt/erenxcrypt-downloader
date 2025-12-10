@@ -33,7 +33,6 @@
             margin-bottom: 20px;
         }
 
-        /* Brand Name */
         h1 {
             background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             -webkit-background-clip: text;
@@ -44,98 +43,38 @@
             letter-spacing: -1px;
         }
 
-        p.subtitle {
-            color: #8e8e8e;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            font-weight: 500;
-        }
-
-        /* Input Box */
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
+        p.subtitle { color: #8e8e8e; font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; }
         
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #262626;
-        }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: #262626; }
 
         input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #dbdbdb;
-            border-radius: 12px;
-            font-size: 1rem;
-            outline: none;
-            box-sizing: border-box;
-            background: #fafafa;
-            transition: 0.2s;
+            width: 100%; padding: 15px; border: 1px solid #dbdbdb; border-radius: 12px;
+            font-size: 1rem; outline: none; box-sizing: border-box; background: #fafafa; transition: 0.2s;
         }
+        input:focus { border-color: #a8a8a8; background: #fff; }
 
-        input:focus {
-            border-color: #a8a8a8;
-            background: #fff;
-        }
-
-        /* Download Button */
         button {
-            width: 100%;
-            padding: 15px;
-            background-color: #0095f6; /* Instagram Blue */
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
+            width: 100%; padding: 15px; background-color: #0095f6; color: white;
+            border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.2s;
         }
+        button:hover { background-color: #1877f2; }
 
-        button:hover {
-            background-color: #1877f2;
-        }
-
-        /* Result Area */
         #result { margin-top: 25px; }
+        .download-btn { display: inline-block; background-color: #0095f6; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 10px; box-shadow: 0 4px 10px rgba(0, 149, 246, 0.3); }
 
-        .download-btn {
-            display: inline-block;
-            background-color: #0095f6;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(0, 149, 246, 0.3);
-        }
-
-        /* Ad Container (Responsive for Native Banner) */
+        /* Safe Ad Container */
         .ad-container {
             margin-top: 15px;
             width: 100%;
-            max-width: 450px; /* Card ke barabar width */
-            padding: 10px;
-            background: transparent; /* Native banner ka apna background hota hai */
+            max-width: 450px;
+            overflow: hidden; /* Bahar niklne se rokega */
             display: flex;
             justify-content: center;
-            align-items: center;
         }
-
-        /* Footer Icons */
-        .trust-icons {
-            margin-top: 20px;
-            color: #c7c7c7;
-            font-size: 1.4rem;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+        
+        /* Trust Icons */
+        .trust-icons { margin-top: 20px; color: #c7c7c7; font-size: 1.4rem; display: flex; justify-content: center; gap: 15px; }
     </style>
 </head>
 <body>
@@ -150,9 +89,8 @@
         </div>
 
         <button onclick="downloadVideo()">Download Reel</button>
-        
         <div id="result"></div>
-
+        
         <div class="trust-icons">
             <i class="fab fa-instagram"></i>
             <i class="fas fa-bolt"></i>
@@ -161,8 +99,22 @@
     </div>
 
     <div class="ad-container">
-        <script async="async" data-cfasync="false" src="//pl28228838.effectivegatecpm.com/2b4179f0946bf2a0825c3e8ddc18cf2b/invoke.js"></script>
-        <div id="container-2b4179f0946bf2a0825c3e8ddc18cf2b"></div>
+        <iframe 
+            title="Sponsor"
+            width="100%" 
+            height="300" 
+            frameborder="0" 
+            scrolling="no"
+            sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+            srcdoc='
+                <html>
+                <body style="margin:0;padding:0;display:flex;justify-content:center;align-items:center;overflow:hidden;">
+                    <script async="async" data-cfasync="false" src="//pl28228838.effectivegatecpm.com/2b4179f0946bf2a0825c3e8ddc18cf2b/invoke.js"></script>
+                    <div id="container-2b4179f0946bf2a0825c3e8ddc18cf2b"></div>
+                </body>
+                </html>
+            '>
+        </iframe>
     </div>
 
     <script>
@@ -171,7 +123,6 @@
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = "";
 
-            // Check if link is Instagram
             if(!url || !url.includes('instagram.com')) { 
                 resultDiv.innerHTML = "<p style='color:#ed4956;'>⚠ Please paste a valid Instagram Link.</p>"; 
                 return; 
@@ -179,12 +130,9 @@
 
             const btn = document.querySelector('button');
             const originalText = btn.innerText;
-            btn.innerText = "Processing..."; 
-            btn.disabled = true; 
-            btn.style.opacity = "0.7";
+            btn.innerText = "Processing..."; btn.disabled = true; btn.style.opacity = "0.7";
 
             try {
-                // Backend call
                 const response = await fetch('/get-video', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -196,22 +144,16 @@
                 if (data.status === 'success') {
                     resultDiv.innerHTML = `
                         <div style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
-                            <p style="font-weight:600; font-size:0.9rem; margin-bottom:10px; color:#262626;">
-                                Reel Ready! ✅
-                            </p>
-                            <a href="${data.download_url}" target="_blank" class="download-btn">
-                                <i class="fas fa-download"></i> Save to Gallery
-                            </a>
+                            <p style="font-weight:600; font-size:0.9rem; margin-bottom:10px; color:#262626;">Reel Ready! ✅</p>
+                            <a href="${data.download_url}" target="_blank" class="download-btn"><i class="fas fa-download"></i> Save to Gallery</a>
                         </div>`;
                 } else {
-                    resultDiv.innerHTML = `<p style="color:#ed4956;">Unable to find video. Private account?</p>`;
+                    resultDiv.innerHTML = `<p style="color:#ed4956;">Unable to find video.</p>`;
                 }
             } catch (err) {
                 resultDiv.innerHTML = `<p style="color:#ed4956;">Server Error. Try again.</p>`;
             }
-            btn.innerText = originalText; 
-            btn.disabled = false; 
-            btn.style.opacity = "1";
+            btn.innerText = originalText; btn.disabled = false; btn.style.opacity = "1";
         }
     </script>
 </body>
