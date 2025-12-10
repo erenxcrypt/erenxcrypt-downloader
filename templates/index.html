@@ -3,21 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Er3nxcrypt | Secure Downloader</title>
+    <title>Er3nxcrypt | Video Downloader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* --- ER3NXCRYPT HACKER THEME --- */
-        :root {
-            --neon-green: #00ff41;
-            --dark-bg: #050505;
-            --glass: rgba(20, 20, 20, 0.9);
-        }
-
+        /* --- PROFESSIONAL CLEAN THEME --- */
         body {
-            background-color: var(--dark-bg);
-            background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
-            color: white;
-            font-family: 'Courier New', monospace;
+            background-color: #f3f4f6; /* Light Grey Background */
+            color: #1f2937; /* Dark Grey Text (Not Black) */
+            font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -27,121 +22,151 @@
         }
 
         /* Main Card */
-        .cyber-card {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.15);
+        .main-card {
+            background: #ffffff;
             width: 100%;
-            max-width: 400px;
+            max-width: 480px;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft Shadow */
             text-align: center;
-            backdrop-filter: blur(5px);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        /* Title Styling */
+        /* Brand Name */
         h1 {
-            color: var(--neon-green);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 1.6rem;
-            margin: 0;
-            text-shadow: 0 0 10px var(--neon-green);
+            color: #2563eb; /* Trustworthy Blue */
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            font-size: 0.75rem;
-            color: #666;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+        /* Description */
+        p.subtitle {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
         }
 
         /* Input Box */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
         input {
             width: 100%;
-            padding: 12px;
-            background: #000;
-            border: 1px solid #444;
-            color: var(--neon-green);
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
             font-size: 1rem;
             outline: none;
+            transition: 0.2s;
             box-sizing: border-box;
-            margin-bottom: 15px;
-            text-align: center;
+            background: #f9fafb;
         }
 
         input:focus {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+            border-color: #2563eb;
+            background: #fff;
         }
 
-        /* Button */
+        /* Action Button */
         button {
             width: 100%;
-            padding: 12px;
-            background: transparent;
-            border: 2px solid var(--neon-green);
-            color: var(--neon-green);
+            padding: 16px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 10px;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            transition: 0.2s;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
         }
 
         button:hover {
-            background: var(--neon-green);
-            color: black;
-            box-shadow: 0 0 15px var(--neon-green);
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
         }
 
         /* Result Area */
-        #result { margin-top: 20px; font-size: 0.9rem; min-height: 20px; }
-        
-        .download-link {
-            display: inline-block;
-            margin-top: 10px;
-            background: #fff;
-            color: #000;
-            padding: 8px 15px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid #fff;
+        #result {
+            margin-top: 25px;
         }
 
-        /* Ad Container (Banner) */
-        .ad-banner-box {
+        .download-btn {
+            display: inline-block;
+            background-color: #10b981; /* Success Green */
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Features Icons */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            color: #9ca3af;
+            font-size: 1.5rem;
+        }
+
+        /* Ad Container Styling */
+        .ad-container {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px dashed #333; /* Hacker feel ke liye dashed border */
-            border-radius: 5px;
+            border: 1px solid #f0f0f0;
         }
     </style>
 </head>
 <body>
 
-    <div class="cyber-card">
+    <div class="main-card">
         <h1>Er3nxcrypt</h1>
-        <p class="subtitle">SYSTEM READY...</p>
+        <p class="subtitle">
+            Download <strong>YouTube Videos</strong> & <strong>Instagram Reels</strong> easily.<br>
+            Fast, Free & Secure.
+        </p>
 
-        <input type="text" id="urlInput" placeholder="> INPUT_URL_HERE">
-        <button onclick="downloadVideo()">INITIATE DOWNLOAD</button>
+        <div class="input-group">
+            <label for="urlInput">Paste Video Link</label>
+            <input type="text" id="urlInput" placeholder="https://youtube.com/...">
+        </div>
+
+        <button onclick="downloadVideo()">Download Video</button>
 
         <div id="result"></div>
 
-        <div style="margin-top:15px; color:#444; font-size:1.2rem;">
-            <i class="fab fa-youtube"></i> &nbsp; <i class="fab fa-instagram"></i>
+        <div class="features">
+            <i class="fab fa-youtube" title="YouTube Supported"></i>
+            <i class="fab fa-instagram" title="Instagram Supported"></i>
+            <i class="fas fa-shield-alt" title="Secure"></i>
         </div>
     </div>
 
-    <div class="ad-banner-box">
+    <div class="ad-container">
         <script type="text/javascript">
             atOptions = {
                 'key' : '7041e36ab2f762a52fa2cde6b8804985',
@@ -154,9 +179,7 @@
         <script type="text/javascript" src="//www.highperformanceformat.com/7041e36ab2f762a52fa2cde6b8804985/invoke.js"></script>
     </div>
 
-    <div id="hidden-ad">
-        <script type="text/javascript" src="//pl28228551.effectivegatecpm.com/74/d9/46/74d9460679c56440d08a729c571b368e.js"></script>
-    </div>
+    <script type="text/javascript" src="//pl28228551.effectivegatecpm.com/74/d9/46/74d9460679c56440d08a729c571b368e.js"></script>
 
 
     <script>
@@ -164,12 +187,20 @@
             const url = document.getElementById('urlInput').value;
             const resultDiv = document.getElementById('result');
             
+            // Clear previous result
+            resultDiv.innerHTML = "";
+
             if(!url) { 
-                resultDiv.innerHTML = "<span style='color:red'>> ERROR: INPUT_EMPTY</span>"; 
+                resultDiv.innerHTML = "<p style='color:#ef4444; font-size:0.9rem;'>⚠ Please paste a valid link first.</p>"; 
                 return; 
             }
 
-            resultDiv.innerHTML = "<span style='color:var(--neon-green)'>... DECRYPTING DATA ...</span>";
+            // Show loading state
+            const btn = document.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+            btn.style.opacity = "0.7";
 
             try {
                 const response = await fetch('/get-video', {
@@ -181,18 +212,29 @@
                 const data = await response.json();
 
                 if (data.status === 'success') {
+                    // Success Result
                     resultDiv.innerHTML = `
-                        <p style="color:#fff;">> FOUND: ${data.title.substring(0, 25)}...</p>
-                        <a href="${data.download_url}" target="_blank" class="download-link">DOWNLOAD FILE</a>
+                        <div style="margin-top:15px; border-top:1px solid #eee; padding-top:15px;">
+                            <p style="font-weight:600; font-size:0.9rem; margin-bottom:10px; color:#374151;">
+                                ${data.title.length > 40 ? data.title.substring(0, 40) + '...' : data.title}
+                            </p>
+                            <a href="${data.download_url}" target="_blank" class="download-btn">
+                                <i class="fas fa-download"></i> Download Now
+                            </a>
+                        </div>
                     `;
                 } else {
-                    resultDiv.innerHTML = `<span style="color:red">> FAILED: ${data.error}</span>`;
+                    resultDiv.innerHTML = `<p style="color:#ef4444; margin-top:10px;">Unable to fetch video. Please check the link.</p>`;
                 }
             } catch (err) {
-                resultDiv.innerHTML = `<span style="color:red">> SERVER CONNECTION LOST</span>`;
+                resultDiv.innerHTML = `<p style="color:#ef4444; margin-top:10px;">Server Error. Please try again later.</p>`;
             }
+
+            // Reset button
+            btn.innerText = originalText;
+            btn.disabled = false;
+            btn.style.opacity = "1";
         }
     </script>
-
 </body>
 </html>
