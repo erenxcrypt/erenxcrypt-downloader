@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
-from yt_dlp import YoutubeDL
-import os
+from flask import Flask, render_template, request, jsonify
+import yt_dlp
 
 app = Flask(__name__)
 
@@ -8,33 +7,34 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/download', methods=['POST'])
-def download_video():
-    url = request.form.get('video_url')
+@app.route('/get-video', methods=['POST'])
+def get_video():
+    url = request.json.get('url')
     
     if not url:
-        return "Error: Link toh dalo bhai!"
-
-    # Options to get direct link (Server pe file save nahi karenge, direct URL denge)
-    ydl_opts = {
-        'format': 'best',
-        'quiet': True,
-    }
+        return jsonify({'error': 'No URL provided'}), 400
 
     try:
-        with YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=False) # Sirf info nikalo
-            video_title = info.get('title', 'Video')
-            video_url = info.get('url') # Direct video link (googlevideo.com wala)
-            thumbnail = info.get('thumbnail')
+        # Options set karte hain taaki direct download link mile
+        ydl_opts = {
+            'format': 'best',  # Best quality
+            'quiet': True,
+            'no_warnings': True,
+        }
+
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(url, download=False)
+            video_url = info.get('url', None)
+            title = info.get('title', 'Video')
             
-            return render_template('index.html', 
-                                   title=video_title, 
-                                   link=video_url, 
-                                   thumb=thumbnail,
-                                   show_result=True)
+            return jsonify({
+                'status': 'success',
+                'download_url': video_url,
+                'title': title
+            })
+
     except Exception as e:
-        return f"Error: {str(e)}"
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
