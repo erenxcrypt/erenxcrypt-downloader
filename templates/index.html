@@ -3,15 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xcrypt Downloader</title>
+    <title>er3nxcrypt's Downloader</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #121212; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .container { background: #1e1e1e; padding: 25px; border-radius: 15px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        input { width: 100%; padding: 12px; margin: 15px 0; border-radius: 8px; border: none; }
-        button { width: 100%; padding: 12px; background: #FF0050; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        body { 
+            background-color: #121212; 
+            color: white; 
+            font-family: sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            flex-direction: column; /* Mobile me ad niche ayega */
+        }
+        .container { 
+            background: #1e1e1e; 
+            padding: 25px; 
+            border-radius: 15px; 
+            width: 90%; 
+            max-width: 400px; 
+            text-align: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+            margin-bottom: 20px;
+        }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 15px 0; 
+            border-radius: 8px; 
+            border: none; 
+            box-sizing: border-box;
+        }
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background: #FF0050; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            cursor: pointer; 
+        }
         #result { margin-top: 20px; }
         a { background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; }
+        
+        /* Ad ke liye styling taaki center me dikhe */
+        .ad-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e1e1e; /* Thoda background dia taaki alag dikhe */
+            padding: 10px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -23,6 +69,19 @@
         <div id="result"></div>
     </div>
 
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '7041e36ab2f762a52fa2cde6b8804985',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/7041e36ab2f762a52fa2cde6b8804985/invoke.js"></script>
+        </div>
+
     <script>
         async function downloadVideo() {
             const url = document.getElementById('urlInput').value;
@@ -32,22 +91,26 @@
 
             resultDiv.innerHTML = "Processing... (Wait karo)";
 
-            // Yeh tumhare Python backend (app.py) ko request bhejega
-            const response = await fetch('/get-video', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ url: url })
-            });
+            // Flask Backend Call
+            try {
+                const response = await fetch('/get-video', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: url })
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (data.status === 'success') {
-                resultDiv.innerHTML = `
-                    <p>${data.title}</p>
-                    <a href="${data.download_url}" target="_blank">Download Now</a>
-                `;
-            } else {
-                resultDiv.innerHTML = `<span style="color:red">Error: ${data.error}</span>`;
+                if (data.status === 'success') {
+                    resultDiv.innerHTML = `
+                        <p>${data.title}</p>
+                        <a href="${data.download_url}" target="_blank">Download Now</a>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `<span style="color:red">Error: ${data.error}</span>`;
+                }
+            } catch (err) {
+                resultDiv.innerHTML = `<span style="color:red">Server Error. Check console.</span>`;
             }
         }
     </script>
