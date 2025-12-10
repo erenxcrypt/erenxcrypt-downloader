@@ -3,90 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Er3nxcrypt | Video Downloader</title>
+    <title>Er3nxcrypt | Secure Downloader</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- CYBERPUNK THEME --- */
+        /* --- ER3NXCRYPT HACKER THEME --- */
         :root {
             --neon-green: #00ff41;
             --dark-bg: #050505;
-            --glass: rgba(20, 20, 20, 0.8);
+            --glass: rgba(20, 20, 20, 0.9);
         }
 
         body {
             background-color: var(--dark-bg);
             background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
             color: white;
-            font-family: 'Courier New', monospace; /* Hacker Font */
+            font-family: 'Courier New', monospace;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 20px;
         }
 
-        /* Hacker Container */
+        /* Main Card */
         .cyber-card {
             background: var(--glass);
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 10px;
             border: 1px solid #333;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.15);
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
         }
 
-        /* Glowing Title */
+        /* Title Styling */
         h1 {
             color: var(--neon-green);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
+            letter-spacing: 3px;
+            font-size: 1.6rem;
+            margin: 0;
             text-shadow: 0 0 10px var(--neon-green);
         }
 
         .subtitle {
-            color: #888;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            color: #666;
             margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
-        /* Input Field */
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
+        /* Input Box */
         input {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             background: #000;
-            border: 1px solid #333;
+            border: 1px solid #444;
             color: var(--neon-green);
             border-radius: 5px;
             font-family: 'Courier New', monospace;
             font-size: 1rem;
             outline: none;
             box-sizing: border-box;
-            transition: 0.3s;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         input:focus {
             border-color: var(--neon-green);
-            box-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
+            box-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
         }
 
-        /* Cyber Button */
+        /* Button */
         button {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             background: transparent;
             border: 2px solid var(--neon-green);
             color: var(--neon-green);
@@ -96,41 +91,37 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
         }
 
         button:hover {
             background: var(--neon-green);
             color: black;
-            box-shadow: 0 0 20px var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green);
         }
 
-        /* Result Section */
-        #result {
-            margin-top: 20px;
-            font-size: 0.9rem;
-        }
-
+        /* Result Area */
+        #result { margin-top: 20px; font-size: 0.9rem; min-height: 20px; }
+        
         .download-link {
             display: inline-block;
             margin-top: 10px;
             background: #fff;
             color: #000;
-            padding: 10px 20px;
+            padding: 8px 15px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 0;
+            border: 1px solid #fff;
         }
 
-        /* Footer Icons */
-        .icons {
-            margin-top: 15px;
-            font-size: 1.5rem;
-            color: #555;
+        /* Ad Container (Banner) */
+        .ad-banner-box {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px dashed #333; /* Hacker feel ke liye dashed border */
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -138,25 +129,35 @@
 
     <div class="cyber-card">
         <h1>Er3nxcrypt</h1>
-        <p class="subtitle">SECURE VIDEO GATEWAY</p>
+        <p class="subtitle">SYSTEM READY...</p>
 
-        <div class="input-group">
-            <input type="text" id="urlInput" placeholder="> Paste_Link_Here_">
-        </div>
-
-        <button onclick="downloadVideo()">Initiate Download</button>
+        <input type="text" id="urlInput" placeholder="> INPUT_URL_HERE">
+        <button onclick="downloadVideo()">INITIATE DOWNLOAD</button>
 
         <div id="result"></div>
 
-        <div class="icons">
-            <i class="fab fa-youtube"></i>
-            <i class="fab fa-instagram"></i>
+        <div style="margin-top:15px; color:#444; font-size:1.2rem;">
+            <i class="fab fa-youtube"></i> &nbsp; <i class="fab fa-instagram"></i>
         </div>
     </div>
 
-    <div id="ad-section">
+    <div class="ad-banner-box">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '7041e36ab2f762a52fa2cde6b8804985',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/7041e36ab2f762a52fa2cde6b8804985/invoke.js"></script>
+    </div>
+
+    <div id="hidden-ad">
         <script type="text/javascript" src="//pl28228551.effectivegatecpm.com/74/d9/46/74d9460679c56440d08a729c571b368e.js"></script>
     </div>
+
 
     <script>
         async function downloadVideo() {
@@ -164,11 +165,11 @@
             const resultDiv = document.getElementById('result');
             
             if(!url) { 
-                resultDiv.innerHTML = "<span style='color:red'>> ERROR: NO_INPUT_DETECTED</span>"; 
+                resultDiv.innerHTML = "<span style='color:red'>> ERROR: INPUT_EMPTY</span>"; 
                 return; 
             }
 
-            resultDiv.innerHTML = "<span style='color:var(--neon-green)'>... DECRYPTING ...</span>";
+            resultDiv.innerHTML = "<span style='color:var(--neon-green)'>... DECRYPTING DATA ...</span>";
 
             try {
                 const response = await fetch('/get-video', {
@@ -181,14 +182,14 @@
 
                 if (data.status === 'success') {
                     resultDiv.innerHTML = `
-                        <p style="color:#fff; margin-bottom:10px;">> ACCESS GRANTED: ${data.title.substring(0, 30)}...</p>
+                        <p style="color:#fff;">> FOUND: ${data.title.substring(0, 25)}...</p>
                         <a href="${data.download_url}" target="_blank" class="download-link">DOWNLOAD FILE</a>
                     `;
                 } else {
-                    resultDiv.innerHTML = `<span style="color:red">> SYSTEM ERROR: ${data.error}</span>`;
+                    resultDiv.innerHTML = `<span style="color:red">> FAILED: ${data.error}</span>`;
                 }
             } catch (err) {
-                resultDiv.innerHTML = `<span style="color:red">> SERVER DISCONNECTED</span>`;
+                resultDiv.innerHTML = `<span style="color:red">> SERVER CONNECTION LOST</span>`;
             }
         }
     </script>
