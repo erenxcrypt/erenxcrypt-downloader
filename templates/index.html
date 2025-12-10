@@ -3,92 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>er3nxcrypt's Downloader</title>
+    <title>Xcrypt Downloader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            background-color: #1a1a1a;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #2d2d2d;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        h1 { color: #00ff88; }
-        input {
-            width: 80%;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-        }
-        button {
-            padding: 15px 30px;
-            background-color: #00ff88;
-            color: #1a1a1a;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        button:hover { background-color: #00cc6a; }
-        
-        .result-box {
-            margin-top: 30px;
-            border-top: 1px solid #444;
-            padding-top: 20px;
-        }
-        img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-        .d-btn {
-            display: inline-block;
-            text-decoration: none;
-            background-color: #ff0055;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        /* Footer Style for your specific name */
-        .footer-text {
-            margin-top: 30px;
-            color: #888;
-            font-family: 'Courier New', Courier, monospace; /* Monospace font looks more techy */
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
+        body { background-color: #121212; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: #1e1e1e; padding: 25px; border-radius: 15px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        input { width: 100%; padding: 12px; margin: 15px 0; border-radius: 8px; border: none; }
+        button { width: 100%; padding: 12px; background: #FF0050; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        #result { margin-top: 20px; }
+        a { background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🚀 er3nxcrypt Downloader</h1>
-        <p>Paste YouTube/Insta Link & Get Direct Video</p>
-
-        <form action="/download" method="POST">
-            <input type="text" name="video_url" placeholder="Paste Link Here..." required>
-            <br>
-            <button type="submit">Fetch Video</button>
-        </form>
-
-        {% if show_result %}
-        <div class="result-box">
-            <h3>{{ title }}</h3>
-            <img src="{{ thumb }}" alt="Thumbnail">
-            <br>
-            <a href="{{ link }}" class="d-btn" target="_blank" download>⬇ CLICK TO DOWNLOAD</a>
-        </div>
-        {% endif %}
-
-        <p class="footer-text">er3nxcrypt_</p>
+        <h2><i class="fab fa-youtube"></i> <i class="fab fa-instagram"></i> Downloader</h2>
+        <input type="text" id="urlInput" placeholder="Paste Video Link here...">
+        <button onclick="downloadVideo()">Get Video</button>
+        <div id="result"></div>
     </div>
 
+    <script>
+        async function downloadVideo() {
+            const url = document.getElementById('urlInput').value;
+            const resultDiv = document.getElementById('result');
+            
+            if(!url) { alert("Link daalo bhai!"); return; }
+
+            resultDiv.innerHTML = "Processing... (Wait karo)";
+
+            // Yeh tumhare Python backend (app.py) ko request bhejega
+            const response = await fetch('/get-video', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url: url })
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                resultDiv.innerHTML = `
+                    <p>${data.title}</p>
+                    <a href="${data.download_url}" target="_blank">Download Now</a>
+                `;
+            } else {
+                resultDiv.innerHTML = `<span style="color:red">Error: ${data.error}</span>`;
+            }
+        }
+    </script>
 </body>
 </html>
