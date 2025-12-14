@@ -6,41 +6,24 @@
     <title>Er3nxcrypt | Insta Reel Saver</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         /* --- INSTAGRAM THEME CLEAN LOOK --- */
         body {
-            background-color: #fafafa;
-            color: #262626;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            background-color: #fafafa; color: #262626; font-family: 'Inter', sans-serif;
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            margin: 0; padding: 20px;
         }
 
         .main-card {
-            background: #ffffff;
-            width: 100%;
-            max-width: 450px;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            border: 1px solid #dbdbdb;
-            margin-bottom: 20px;
+            background: #ffffff; width: 100%; max-width: 450px; padding: 40px 30px;
+            border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08); text-align: center;
+            border: 1px solid #dbdbdb; margin-bottom: 20px;
         }
 
         h1 {
             background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 2rem;
-            margin-bottom: 5px;
-            font-weight: 800;
-            letter-spacing: -1px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 2rem; margin-bottom: 5px; font-weight: 800; letter-spacing: -1px;
         }
 
         p.subtitle { color: #8e8e8e; font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; }
@@ -64,13 +47,35 @@
         .download-btn { display: inline-block; background-color: #0095f6; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 10px; box-shadow: 0 4px 10px rgba(0, 149, 246, 0.3); }
 
         /* Safe Ad Container */
-        .ad-container {
-            margin-top: 15px;
+        .ad-container-top {
+            margin: 15px auto;
             width: 100%;
-            max-width: 450px;
-            overflow: hidden; /* Bahar niklne se rokega */
+            max-width: 728px; /* Desktop size */
             display: flex;
             justify-content: center;
+        }
+
+        /* 728x90 Ad CSS to make it responsive */
+        .ad-728x90-placement {
+            width: 728px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin: 15px 0; /* Vertical space */
+        }
+        
+        /* 🔥 Mobile Responsiveness for 728x90 Banner 🔥 */
+        @media (max-width: 767px) {
+            .ad-728x90-placement {
+                width: 320px; /* Mobile standard width */
+                height: 50px; /* Mobile standard height */
+                margin: 10px 0;
+            }
+            .main-card {
+                padding: 30px 20px; /* Mobile par kam padding */
+            }
         }
         
         /* Trust Icons */
@@ -78,7 +83,25 @@
     </style>
 </head>
 <body>
-
+    
+    <div class="ad-container-top">
+        <div class="ad-728x90-placement">
+            <script type="text/javascript">
+              atOptions = {
+              	'key' : '162f356ef9a733d1a0f1004e867d35b6',
+              	'format' : 'iframe',
+              	'height' : 90,
+              	'width' : 728,
+              	'params' : {}
+              };
+            </script>
+            <script
+              type="text/javascript"
+              src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"
+            ></script>
+        </div>
+    </div>
+    
     <div class="main-card">
         <h1>Er3nxcrypt</h1>
         <p class="subtitle">Download Instagram Reels <br> <strong>Without Watermark</strong></p>
@@ -89,12 +112,47 @@
         </div>
 
         <button onclick="downloadVideo()">Download Reel</button>
+        
+        <div id="adResult" class="ad-728x90-placement" style="display: none;">
+            <script type="text/javascript">
+              atOptions = {
+              	'key' : '162f356ef9a733d1a0f1004e867d35b6',
+              	'format' : 'iframe',
+              	'height' : 90,
+              	'width' : 728,
+              	'params' : {}
+              };
+            </script>
+            <script
+              type="text/javascript"
+              src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"
+            ></script>
+        </div>
+        
         <div id="result"></div>
         
         <div class="trust-icons">
             <i class="fab fa-instagram"></i>
             <i class="fas fa-bolt"></i>
             <i class="fas fa-check-circle"></i>
+        </div>
+    </div>
+    
+    <div class="ad-container-top">
+        <div class="ad-728x90-placement">
+            <script type="text/javascript">
+              atOptions = {
+              	'key' : '162f356ef9a733d1a0f1004e867d35b6',
+              	'format' : 'iframe',
+              	'height' : 90,
+              	'width' : 728,
+              	'params' : {}
+              };
+            </script>
+            <script
+              type="text/javascript"
+              src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"
+            ></script>
         </div>
     </div>
 
@@ -118,10 +176,13 @@
     </div>
 
     <script>
+        const adResultDiv = document.getElementById('adResult');
+
         async function downloadVideo() {
             const url = document.getElementById('urlInput').value;
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = "";
+            adResultDiv.style.display = 'none'; // Pehle ad ko chhupa do
 
             if(!url || !url.includes('instagram.com')) { 
                 resultDiv.innerHTML = "<p style='color:#ed4956;'>⚠ Please paste a valid Instagram Link.</p>"; 
@@ -147,8 +208,11 @@
                             <p style="font-weight:600; font-size:0.9rem; margin-bottom:10px; color:#262626;">Reel Ready! ✅</p>
                             <a href="${data.download_url}" target="_blank" class="download-btn"><i class="fas fa-download"></i> Save to Gallery</a>
                         </div>`;
+                    
+                    // 🔥 RESULT AANE PAR AD DIKHAO 🔥
+                    adResultDiv.style.display = 'flex';
                 } else {
-                    resultDiv.innerHTML = `<p style="color:#ed4956;">Unable to find video.</p>`;
+                    resultDiv.innerHTML = `<p style="color:#ed4956;">Unable to find video or URL is invalid.</p>`;
                 }
             } catch (err) {
                 resultDiv.innerHTML = `<p style="color:#ed4956;">Server Error. Try again.</p>`;
