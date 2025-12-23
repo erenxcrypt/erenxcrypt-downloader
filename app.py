@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 import yt_dlp
+import requests
 
 app = Flask(__name__)
 
@@ -15,9 +16,8 @@ def get_video():
         return jsonify({'error': 'No URL provided'}), 400
 
     try:
-        # Options set karte hain taaki direct download link mile
         ydl_opts = {
-            'format': 'best',  # Best quality
+            'format': 'best',
             'quiet': True,
             'no_warnings': True,
         }
@@ -25,7 +25,7 @@ def get_video():
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
             video_url = info.get('url', None)
-            title = info.get('title', 'Video')
+            title = info.get('title', 'xcrypt_tech_video')
             
             return jsonify({
                 'status': 'success',
@@ -35,6 +35,24 @@ def get_video():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+# 🔥 NEW: Direct Download Route (Three dots wala jhamela khatam karne ke liye)
+@app.route('/proxy-download')
+def proxy_download():
+    video_url = request.args.get('url')
+    if not video_url:
+        return "No URL", 400
+    
+    # Video fetch karke browser ko as an attachment dena
+    r = requests.get(video_url, stream=True)
+    def generate():
+        for chunk in r.iter_content(chunk_size=1024*1024):
+            yield chunk
+            
+    return Response(generate(), headers={
+        "Content-Type": "video/mp4",
+        "Content-Disposition": "attachment; filename=XcryptTech_Video.mp4"
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)
