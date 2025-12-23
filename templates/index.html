@@ -3,183 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XCRYPT TECH | Instagram Reel Downloader </title>
+    <title>XCRYPT TECH | Reel Downloader</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- BRAND THEME & STYLES --- */
-        body {
-            background-color: #fafafa; color: #262626; font-family: 'Inter', sans-serif;
-            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
-            margin: 0; padding: 20px;
-        }
-
-        .main-card {
-            background: #ffffff; width: 100%; max-width: 450px; padding: 40px 30px;
-            border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08); text-align: center;
-            border: 1px solid #dbdbdb; margin-bottom: 20px;
-        }
-
-        h1 {
-            background: linear-gradient(45deg, #262626, #555);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-size: 2.2rem; margin-bottom: 5px; font-weight: 800; letter-spacing: -1px;
-            text-transform: uppercase;
-        }
-
-        p.subtitle { color: #8e8e8e; font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; }
-        
-        .input-group { margin-bottom: 20px; text-align: left; }
-        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: #262626; }
-
-        input {
-            width: 100%; padding: 15px; border: 1px solid #dbdbdb; border-radius: 12px;
-            font-size: 1rem; outline: none; box-sizing: border-box; background: #fafafa; transition: 0.2s;
-        }
-        input:focus { border-color: #0095f6; background: #fff; }
-
-        button {
-            width: 100%; padding: 15px; background-color: #000; color: white;
-            border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.2s;
-        }
-        button:hover { background-color: #333; }
-
-        /* Tutorial Section */
-        .tutorial-card {
-            background: #fff; border: 1px dashed #dbdbdb; border-radius: 12px;
-            padding: 15px; margin-top: 20px; text-align: left; font-size: 0.85rem; color: #555;
-        }
-        .tutorial-card h4 { margin: 0 0 10px 0; font-size: 0.9rem; color: #000; }
-        .tutorial-card ol { padding-left: 20px; margin: 0; }
-
-        #result { margin-top: 25px; }
-        .download-btn { 
-            display: inline-block; background-color: #0095f6; color: white; 
-            padding: 12px 25px; text-decoration: none; border-radius: 8px; 
-            font-weight: 600; margin-top: 10px; box-shadow: 0 4px 10px rgba(0, 149, 246, 0.3); 
-        }
-
-        /* Footer Credits */
-        footer { margin-top: 30px; margin-bottom: 40px; text-align: center; }
-        footer p { margin: 0; font-size: 0.9rem; color: #262626; font-weight: 600; }
-        .built-by { font-size: 11px !important; color: #8e8e8e !important; font-weight: 400 !important; margin-top: 5px; }
-
-        /* Ads Layout Fix */
-        .ad-container-top { margin: 15px auto; width: 100%; max-width: 728px; display: flex; justify-content: center; overflow: hidden; }
-        .ad-728x90-placement { width: 728px; height: 90px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-        
-        @media (max-width: 767px) {
-            .ad-728x90-placement { width: 320px; height: 50px; }
-            h1 { font-size: 1.8rem; }
-        }
+        body { background-color: #fafafa; color: #262626; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; margin: 0; padding: 20px; }
+        .main-card { background: #fff; width: 100%; max-width: 450px; padding: 40px 30px; border-radius: 20px; box-shadow: 0 4px 30px rgba(0,0,0,0.08); text-align: center; border: 1px solid #dbdbdb; margin-bottom: 20px; }
+        h1 { background: linear-gradient(45deg, #000, #444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2rem; margin: 0; font-weight: 800; text-transform: uppercase; }
+        .subtitle { color: #8e8e8e; font-size: 0.9rem; margin-bottom: 25px; }
+        input { width: 100%; padding: 15px; border: 1px solid #dbdbdb; border-radius: 12px; font-size: 1rem; outline: none; box-sizing: border-box; background: #fafafa; margin-bottom: 15px; }
+        button { width: 100%; padding: 15px; background: #000; color: #fff; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+        .tutorial { background: #f9f9f9; border: 1px dashed #ddd; border-radius: 10px; padding: 15px; margin-top: 20px; text-align: left; font-size: 0.8rem; }
+        .download-btn { display: inline-block; background: #0095f6; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 15px; }
+        footer { margin-top: 20px; text-align: center; }
+        .brand-footer { font-size: 0.9rem; font-weight: 600; margin: 0; }
+        .built-footer { font-size: 11px; color: #8e8e8e; margin: 5px 0 0 0; }
+        .ad-box { margin: 15px 0; width: 100%; display: flex; justify-content: center; }
     </style>
 </head>
 <body>
-    
-    <div class="ad-container-top">
-        <div class="ad-728x90-placement">
-            <script type="text/javascript">
-                atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
-            </script>
-            <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
-        </div>
+    <div class="ad-box">
+        <script type="text/javascript">
+            atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
     </div>
-    
+
     <div class="main-card">
         <h1>XCRYPT TECH</h1>
-        <p class="subtitle">High-Speed Instagram Reel Downloader</p>
-
-        <div class="input-group">
-            <label for="urlInput">Paste Reel Link</label>
-            <input type="text" id="urlInput" placeholder="https://instagram.com/reel/...">
-        </div>
-
-        <button onclick="downloadVideo()">Download Reel</button>
-
-        <div class="tutorial-card">
-            <h4>How to Use:</h4>
-            <ol>
-                <li>Copy the Link of the Instagram Reel.</li>
-                <li>Paste it in the box above.</li>
-                <li>Click <strong>Download</strong> and then <strong>Save to Gallery</strong>.</li>
-            </ol>
-        </div>
+        <p class="subtitle">Fast Instagram Reel Downloader</p>
+        <input type="text" id="urlInput" placeholder="Paste link here...">
+        <button onclick="downloadVideo()" id="dlBtn">Download</button>
         
-        <div id="adResult" class="ad-728x90-placement" style="display: none; margin: 15px auto;">
+        <div class="tutorial">
+            <strong>How to use:</strong>
+            <ol><li>Copy Reel Link</li><li>Paste in box</li><li>Click Download</li></ol>
+        </div>
+
+        <div id="adResult" class="ad-box" style="display:none;">
             <script type="text/javascript">
                 atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
             </script>
             <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
         </div>
-        
         <div id="result"></div>
     </div>
 
-    <div class="ad-container-top">
-        <div class="ad-728x90-placement">
-            <script type="text/javascript">
-                atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
-            </script>
-            <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
-        </div>
-    </div>
-
-    <div class="ad-container" style="width: 100%; max-width: 450px;">
-        <iframe title="Sponsor" width="100%" height="300" frameborder="0" scrolling="no"
-            sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
-            srcdoc='<html><body style="margin:0;padding:0;display:flex;justify-content:center;align-items:center;overflow:hidden;"><script async="async" data-cfasync="false" src="//pl28228838.effectivegatecpm.com/2b4179f0946bf2a0825c3e8ddc18cf2b/invoke.js"></script><div id="container-2b4179f0946bf2a0825c3e8ddc18cf2b"></div></body></html>'>
-        </iframe>
-    </div>
-
     <footer>
-        <p>© 2025 Xcrypt Tech</p>
-        <p class="built-by">Built by Mahitav</p>
+        <p class="brand-footer">© 2025 Xcrypt Tech</p>
+        <p class="built-footer">Built by Mahitav</p>
     </footer>
 
     <script>
         async function downloadVideo() {
             const url = document.getElementById('urlInput').value;
-            const resultDiv = document.getElementById('result');
-            const adResultDiv = document.getElementById('adResult');
-            resultDiv.innerHTML = "";
-            adResultDiv.style.display = 'none';
-
-            if(!url || !url.includes('instagram.com')) { 
-                resultDiv.innerHTML = "<p style='color:#ed4956;'>⚠ Please paste a valid Instagram Link.</p>"; 
-                return; 
-            }
-
-            const btn = document.querySelector('button');
-            const originalText = btn.innerText;
+            const res = document.getElementById('result');
+            const btn = document.getElementById('dlBtn');
+            const adR = document.getElementById('adResult');
+            if(!url.includes('instagram.com')) return alert('Invalid Link');
+            
             btn.innerText = "Processing..."; btn.disabled = true;
-
             try {
                 const response = await fetch('/get-video', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ url: url })
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({url: url})
                 });
-
                 const data = await response.json();
-
-                if (data.status === 'success') {
-                    // 🔥 Using the proxy-download route for one-click download
-                    const finalDownloadUrl = `/proxy-download?url=${encodeURIComponent(data.download_url)}`;
-                    
-                    resultDiv.innerHTML = `
-                        <div style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
-                            <p style="font-weight:600; font-size:0.9rem; margin-bottom:10px; color:#262626;">Reel Ready! ✅</p>
-                            <a href="${finalDownloadUrl}" class="download-btn"><i class="fas fa-download"></i> Save to Gallery</a>
-                        </div>`;
-                    
-                    adResultDiv.style.display = 'flex';
-                } else {
-                    resultDiv.innerHTML = `<p style="color:#ed4956;">Unable to find video or URL is invalid.</p>`;
-                }
-            } catch (err) {
-                resultDiv.innerHTML = `<p style="color:#ed4956;">Server Error. Try again.</p>`;
-            }
-            btn.innerText = originalText; btn.disabled = false;
+                if(data.status === 'success') {
+                    const dlUrl = `/proxy-download?url=${encodeURIComponent(data.download_url)}`;
+                    res.innerHTML = `<a href="${dlUrl}" class="download-btn">Save to Gallery</a>`;
+                    adR.style.display = 'flex';
+                } else { res.innerHTML = "Error fetching video."; }
+            } catch(e) { res.innerHTML = "Server Error."; }
+            btn.innerText = "Download"; btn.disabled = false;
         }
     </script>
 </body>
