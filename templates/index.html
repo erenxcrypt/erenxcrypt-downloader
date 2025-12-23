@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Er3nxcrypt | Insta Reel Saver</title>
+    <title>XCRYPT TECH | Instagram Reel Downloader </title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- INSTAGRAM THEME CLEAN LOOK --- */
+        /* --- BRAND THEME & STYLES --- */
         body {
             background-color: #fafafa; color: #262626; font-family: 'Inter', sans-serif;
             display: flex; flex-direction: column; align-items: center; min-height: 100vh;
@@ -21,9 +21,10 @@
         }
 
         h1 {
-            background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: linear-gradient(45deg, #262626, #555);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            font-size: 2rem; margin-bottom: 5px; font-weight: 800; letter-spacing: -1px;
+            font-size: 2.2rem; margin-bottom: 5px; font-weight: 800; letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         p.subtitle { color: #8e8e8e; font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; }
@@ -35,51 +36,42 @@
             width: 100%; padding: 15px; border: 1px solid #dbdbdb; border-radius: 12px;
             font-size: 1rem; outline: none; box-sizing: border-box; background: #fafafa; transition: 0.2s;
         }
-        input:focus { border-color: #a8a8a8; background: #fff; }
+        input:focus { border-color: #0095f6; background: #fff; }
 
         button {
-            width: 100%; padding: 15px; background-color: #0095f6; color: white;
+            width: 100%; padding: 15px; background-color: #000; color: white;
             border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.2s;
         }
-        button:hover { background-color: #1877f2; }
+        button:hover { background-color: #333; }
+
+        /* Tutorial Section */
+        .tutorial-card {
+            background: #fff; border: 1px dashed #dbdbdb; border-radius: 12px;
+            padding: 15px; margin-top: 20px; text-align: left; font-size: 0.85rem; color: #555;
+        }
+        .tutorial-card h4 { margin: 0 0 10px 0; font-size: 0.9rem; color: #000; }
+        .tutorial-card ol { padding-left: 20px; margin: 0; }
 
         #result { margin-top: 25px; }
-        .download-btn { display: inline-block; background-color: #0095f6; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 10px; box-shadow: 0 4px 10px rgba(0, 149, 246, 0.3); }
-
-        /* Safe Ad Container */
-        .ad-container-top {
-            margin: 15px auto;
-            width: 100%;
-            max-width: 728px; /* Desktop size */
-            display: flex;
-            justify-content: center;
+        .download-btn { 
+            display: inline-block; background-color: #0095f6; color: white; 
+            padding: 12px 25px; text-decoration: none; border-radius: 8px; 
+            font-weight: 600; margin-top: 10px; box-shadow: 0 4px 10px rgba(0, 149, 246, 0.3); 
         }
 
-        /* 728x90 Ad CSS to make it responsive */
-        .ad-728x90-placement {
-            width: 728px;
-            height: 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            margin: 15px 0; /* Vertical space */
-        }
+        /* Footer Credits */
+        footer { margin-top: 30px; margin-bottom: 40px; text-align: center; }
+        footer p { margin: 0; font-size: 0.9rem; color: #262626; font-weight: 600; }
+        .built-by { font-size: 11px !important; color: #8e8e8e !important; font-weight: 400 !important; margin-top: 5px; }
+
+        /* Ads Layout Fix */
+        .ad-container-top { margin: 15px auto; width: 100%; max-width: 728px; display: flex; justify-content: center; overflow: hidden; }
+        .ad-728x90-placement { width: 728px; height: 90px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
         
-        /* 🔥 Mobile Responsiveness for 728x90 Banner 🔥 */
         @media (max-width: 767px) {
-            .ad-728x90-placement {
-                width: 320px; /* Mobile standard width */
-                height: 50px; /* Mobile standard height */
-                margin: 10px 0;
-            }
-            .main-card {
-                padding: 30px 20px; /* Mobile par kam padding */
-            }
+            .ad-728x90-placement { width: 320px; height: 50px; }
+            h1 { font-size: 1.8rem; }
         }
-        
-        /* Trust Icons */
-        .trust-icons { margin-top: 20px; color: #c7c7c7; font-size: 1.4rem; display: flex; justify-content: center; gap: 15px; }
     </style>
 </head>
 <body>
@@ -87,24 +79,15 @@
     <div class="ad-container-top">
         <div class="ad-728x90-placement">
             <script type="text/javascript">
-              atOptions = {
-              	'key' : '162f356ef9a733d1a0f1004e867d35b6',
-              	'format' : 'iframe',
-              	'height' : 90,
-              	'width' : 728,
-              	'params' : {}
-              };
+                atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
             </script>
-            <script
-              type="text/javascript"
-              src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"
-            ></script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
         </div>
     </div>
     
     <div class="main-card">
-        <h1>Er3nxcrypt</h1>
-        <p class="subtitle">Download Instagram Reels <br> <strong>Without Watermark</strong></p>
+        <h1>XCRYPT TECH</h1>
+        <p class="subtitle">High-Speed Instagram Reel Downloader</p>
 
         <div class="input-group">
             <label for="urlInput">Paste Reel Link</label>
@@ -112,77 +95,54 @@
         </div>
 
         <button onclick="downloadVideo()">Download Reel</button>
+
+        <div class="tutorial-card">
+            <h4>How to Use:</h4>
+            <ol>
+                <li>Copy the Link of the Instagram Reel.</li>
+                <li>Paste it in the box above.</li>
+                <li>Click <strong>Download</strong> and then <strong>Save to Gallery</strong>.</li>
+            </ol>
+        </div>
         
-        <div id="adResult" class="ad-728x90-placement" style="display: none;">
+        <div id="adResult" class="ad-728x90-placement" style="display: none; margin: 15px auto;">
             <script type="text/javascript">
-              atOptions = {
-              	'key' : '162f356ef9a733d1a0f1004e867d35b6',
-              	'format' : 'iframe',
-              	'height' : 90,
-              	'width' : 728,
-              	'params' : {}
-              };
+                atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
             </script>
-            <script
-              type="text/javascript"
-              src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"
-            ></script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
         </div>
         
         <div id="result"></div>
-        
-        <div class="trust-icons">
-            <i class="fab fa-instagram"></i>
-            <i class="fas fa-bolt"></i>
-            <i class="fas fa-check-circle"></i>
-        </div>
     </div>
-    
+
     <div class="ad-container-top">
         <div class="ad-728x90-placement">
             <script type="text/javascript">
-              atOptions = {
-              	'key' : '162f356ef9a733d1a0f1004e867d35b6',
-              	'format' : 'iframe',
-              	'height' : 90,
-              	'width' : 728,
-              	'params' : {}
-              };
+                atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
             </script>
-            <script
-              type="text/javascript"
-              src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"
-            ></script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
         </div>
     </div>
 
-    <div class="ad-container">
-        <iframe 
-            title="Sponsor"
-            width="100%" 
-            height="300" 
-            frameborder="0" 
-            scrolling="no"
+    <div class="ad-container" style="width: 100%; max-width: 450px;">
+        <iframe title="Sponsor" width="100%" height="300" frameborder="0" scrolling="no"
             sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
-            srcdoc='
-                <html>
-                <body style="margin:0;padding:0;display:flex;justify-content:center;align-items:center;overflow:hidden;">
-                    <script async="async" data-cfasync="false" src="//pl28228838.effectivegatecpm.com/2b4179f0946bf2a0825c3e8ddc18cf2b/invoke.js"></script>
-                    <div id="container-2b4179f0946bf2a0825c3e8ddc18cf2b"></div>
-                </body>
-                </html>
-            '>
+            srcdoc='<html><body style="margin:0;padding:0;display:flex;justify-content:center;align-items:center;overflow:hidden;"><script async="async" data-cfasync="false" src="//pl28228838.effectivegatecpm.com/2b4179f0946bf2a0825c3e8ddc18cf2b/invoke.js"></script><div id="container-2b4179f0946bf2a0825c3e8ddc18cf2b"></div></body></html>'>
         </iframe>
     </div>
 
-    <script>
-        const adResultDiv = document.getElementById('adResult');
+    <footer>
+        <p>© 2025 Xcrypt Tech</p>
+        <p class="built-by">Built by Mahitav</p>
+    </footer>
 
+    <script>
         async function downloadVideo() {
             const url = document.getElementById('urlInput').value;
             const resultDiv = document.getElementById('result');
+            const adResultDiv = document.getElementById('adResult');
             resultDiv.innerHTML = "";
-            adResultDiv.style.display = 'none'; // Pehle ad ko chhupa do
+            adResultDiv.style.display = 'none';
 
             if(!url || !url.includes('instagram.com')) { 
                 resultDiv.innerHTML = "<p style='color:#ed4956;'>⚠ Please paste a valid Instagram Link.</p>"; 
@@ -191,7 +151,7 @@
 
             const btn = document.querySelector('button');
             const originalText = btn.innerText;
-            btn.innerText = "Processing..."; btn.disabled = true; btn.style.opacity = "0.7";
+            btn.innerText = "Processing..."; btn.disabled = true;
 
             try {
                 const response = await fetch('/get-video', {
@@ -203,13 +163,15 @@
                 const data = await response.json();
 
                 if (data.status === 'success') {
+                    // 🔥 Using the proxy-download route for one-click download
+                    const finalDownloadUrl = `/proxy-download?url=${encodeURIComponent(data.download_url)}`;
+                    
                     resultDiv.innerHTML = `
                         <div style="margin-top:20px; border-top:1px solid #eee; padding-top:15px;">
                             <p style="font-weight:600; font-size:0.9rem; margin-bottom:10px; color:#262626;">Reel Ready! ✅</p>
-                            <a href="${data.download_url}" target="_blank" class="download-btn"><i class="fas fa-download"></i> Save to Gallery</a>
+                            <a href="${finalDownloadUrl}" class="download-btn"><i class="fas fa-download"></i> Save to Gallery</a>
                         </div>`;
                     
-                    // 🔥 RESULT AANE PAR AD DIKHAO 🔥
                     adResultDiv.style.display = 'flex';
                 } else {
                     resultDiv.innerHTML = `<p style="color:#ed4956;">Unable to find video or URL is invalid.</p>`;
@@ -217,7 +179,7 @@
             } catch (err) {
                 resultDiv.innerHTML = `<p style="color:#ed4956;">Server Error. Try again.</p>`;
             }
-            btn.innerText = originalText; btn.disabled = false; btn.style.opacity = "1";
+            btn.innerText = originalText; btn.disabled = false;
         }
     </script>
 </body>
