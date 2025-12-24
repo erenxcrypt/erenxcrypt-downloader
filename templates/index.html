@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XCRYPT TECH | Reel Downloader</title>
+    <title>XCRYPT TECH | Reel Downloader </title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #fafafa; color: #262626; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; margin: 0; padding: 20px; }
-        .main-card { background: #fff; width: 100%; max-width: 450px; padding: 40px 30px; border-radius: 20px; box-shadow: 0 4px 30px rgba(0,0,0,0.08); text-align: center; border: 1px solid #dbdbdb; margin-bottom: 20px; }
-        h1 { background: linear-gradient(45deg, #000, #444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2rem; margin: 0; font-weight: 800; text-transform: uppercase; }
-        .subtitle { color: #8e8e8e; font-size: 0.9rem; margin-bottom: 25px; }
+        body { background-color: #fafafa; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; }
+        .main-card { background: #fff; width: 100%; max-width: 450px; padding: 35px 25px; border-radius: 20px; box-shadow: 0 4px 25px rgba(0,0,0,0.1); text-align: center; border: 1px solid #dbdbdb; margin: 20px 0; }
+        h1 { color: #000; font-size: 2rem; margin: 0; font-weight: 800; text-transform: uppercase; }
+        .subtitle { color: #8e8e8e; font-size: 0.95rem; margin-bottom: 25px; }
         input { width: 100%; padding: 15px; border: 1px solid #dbdbdb; border-radius: 12px; font-size: 1rem; outline: none; box-sizing: border-box; background: #fafafa; margin-bottom: 15px; }
         button { width: 100%; padding: 15px; background: #000; color: #fff; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; }
-        .tutorial { background: #f9f9f9; border: 1px dashed #ddd; border-radius: 10px; padding: 15px; margin-top: 20px; text-align: left; font-size: 0.8rem; }
-        .download-btn { display: inline-block; background: #0095f6; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 15px; }
-        footer { margin-top: 20px; text-align: center; }
-        .brand-footer { font-size: 0.9rem; font-weight: 600; margin: 0; }
-        .built-footer { font-size: 11px; color: #8e8e8e; margin: 5px 0 0 0; }
-        .ad-box { margin: 15px 0; width: 100%; display: flex; justify-content: center; }
+        .download-btn { display: inline-block; background: #0095f6; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 20px; }
+        footer { margin-top: 20px; text-align: center; padding-bottom: 40px; }
+        .built-by { font-size: 11px; color: #8e8e8e; margin-top: 5px; }
+        .ad-container { margin: 15px 0; width: 100%; display: flex; justify-content: center; }
     </style>
 </head>
 <body>
-    <div class="ad-box">
+
+    <div class="ad-container">
         <script type="text/javascript">
             atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
         </script>
@@ -31,38 +29,52 @@
 
     <div class="main-card">
         <h1>XCRYPT TECH</h1>
-        <p class="subtitle">Fast Instagram Reel Downloader</p>
-        <input type="text" id="urlInput" placeholder="Paste link here...">
-        <button onclick="downloadVideo()" id="dlBtn">Download</button>
+        <p class="subtitle">Download Instagram Reels Instantly</p>
         
-        <div class="tutorial">
-            <strong>How to use:</strong>
-            <ol><li>Copy Reel Link</li><li>Paste in box</li><li>Click Download</li></ol>
-        </div>
+        <input type="text" id="urlInput" placeholder="Paste link here...">
+        <button onclick="downloadVideo()" id="dlBtn">Download Reel</button>
 
-        <div id="adResult" class="ad-box" style="display:none;">
+        <div id="result"></div>
+
+        <div id="adResult" style="display:none; margin-top:20px;">
             <script type="text/javascript">
                 atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
             </script>
             <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
         </div>
-        <div id="result"></div>
+    </div>
+
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = { 'key' : '162f356ef9a733d1a0f1004e867d35b6', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/162f356ef9a733d1a0f1004e867d35b6/invoke.js"></script>
+    </div>
+
+    <div class="ad-container">
+        <iframe title="Sponsor" width="100%" height="300" frameborder="0" scrolling="no"
+            sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+            srcdoc='<html><body style="margin:0;padding:0;display:flex;justify-content:center;align-items:center;overflow:hidden;"><script async="async" data-cfasync="false" src="//pl28228838.effectivegatecpm.com/2b4179f0946bf2a0825c3e8ddc18cf2b/invoke.js"></script><div id="container-2b4179f0946bf2a0825c3e8ddc18cf2b"></div></body></html>'>
+        </iframe>
     </div>
 
     <footer>
-        <p class="brand-footer">© 2025 Xcrypt Tech</p>
-        <p class="built-footer">Built by Mahitav</p>
+        <strong>© 2025 Xcrypt Tech</strong>
+        <p class="built-by">Built by Mahitav</p>
     </footer>
 
     <script>
         async function downloadVideo() {
             const url = document.getElementById('urlInput').value;
-            const res = document.getElementById('result');
+            const resDiv = document.getElementById('result');
             const btn = document.getElementById('dlBtn');
             const adR = document.getElementById('adResult');
-            if(!url.includes('instagram.com')) return alert('Invalid Link');
+            
+            if(!url.includes('instagram.com')) return alert("Please paste a valid Instagram link!");
             
             btn.innerText = "Processing..."; btn.disabled = true;
+            resDiv.innerHTML = "";
+            
             try {
                 const response = await fetch('/get-video', {
                     method: 'POST',
@@ -71,12 +83,15 @@
                 });
                 const data = await response.json();
                 if(data.status === 'success') {
-                    const dlUrl = `/proxy-download?url=${encodeURIComponent(data.download_url)}`;
-                    res.innerHTML = `<a href="${dlUrl}" class="download-btn">Save to Gallery</a>`;
-                    adR.style.display = 'flex';
-                } else { res.innerHTML = "Error fetching video."; }
-            } catch(e) { res.innerHTML = "Server Error."; }
-            btn.innerText = "Download"; btn.disabled = false;
+                    resDiv.innerHTML = `<a href="${data.download_url}" target="_blank" class="download-btn">Save to Gallery</a>`;
+                    adR.style.display = 'block';
+                } else {
+                    resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Error: Could not fetch video. Try again.</p>";
+                }
+            } catch(e) {
+                resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Server Error. Try again later.</p>";
+            }
+            btn.innerText = "Download Reel"; btn.disabled = false;
         }
     </script>
 </body>
