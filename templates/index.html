@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XCRYPT TECH | Reel Downloader </title>
+    <title>XCRYPT TECH | Instagram Reel Downloader</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         body { background-color: #fafafa; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; }
@@ -14,7 +14,7 @@
         button { width: 100%; padding: 15px; background: #000; color: #fff; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; }
         .download-btn { display: inline-block; background: #0095f6; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 20px; }
         footer { margin-top: 20px; text-align: center; padding-bottom: 40px; }
-        .built-by { font-size: 11px; color: #8e8e8e; margin-top: 5px; }
+        .built-by { font-size: 11px; color: #8e8e8e; margin-top: 5px; font-weight: 400; }
         .ad-container { margin: 15px 0; width: 100%; display: flex; justify-content: center; }
     </style>
 </head>
@@ -29,10 +29,10 @@
 
     <div class="main-card">
         <h1>XCRYPT TECH</h1>
-        <p class="subtitle">Old School Reel Downloader</p>
+        <p class="subtitle">Download High Quality Reels Without Watermark</p>
         
-        <input type="text" id="urlInput" placeholder="Paste link here...">
-        <button onclick="downloadVideo()" id="dlBtn">Download Reel</button>
+        <input type="text" id="urlInput" placeholder="Paste Instagram link here...">
+        <button onclick="downloadVideo()" id="dlBtn">Download</button>
 
         <div id="result"></div>
 
@@ -59,7 +59,7 @@
     </div>
 
     <footer>
-        <strong>© 2025 Xcrypt Tech</strong>
+        <p style="margin:0; font-weight:600;">© 2025 Xcrypt Tech</p>
         <p class="built-by">Built by Mahitav</p>
     </footer>
 
@@ -70,9 +70,13 @@
             const btn = document.getElementById('dlBtn');
             const adR = document.getElementById('adResult');
             
-            if(!url) return alert("Paste link!");
+            if(!url) {
+                alert("Please paste a link first!");
+                return;
+            }
             
-            btn.innerText = "Processing..."; btn.disabled = true;
+            btn.innerText = "Processing...";
+            btn.disabled = true;
             resDiv.innerHTML = "";
             
             try {
@@ -81,18 +85,20 @@
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({url: url})
                 });
+                
                 const data = await response.json();
+                
                 if(data.status === 'success') {
-                    // PURANI TECHNIQUE: Direct Video Link kholna
                     resDiv.innerHTML = `<a href="${data.download_url}" target="_blank" rel="noopener noreferrer" class="download-btn">Save to Gallery</a>`;
                     adR.style.display = 'block';
                 } else {
-                    resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Error! Link invalid ho sakta hai.</p>";
+                    resDiv.innerHTML = `<p style="color:#ed4956; margin-top:15px; font-size:0.9rem;">Error: Invalid Link or Video Private</p>`;
                 }
             } catch(e) {
-                resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Server Error.</p>";
+                resDiv.innerHTML = `<p style="color:#ed4956; margin-top:15px; font-size:0.9rem;">Server Error: Please try again later</p>`;
             }
-            btn.innerText = "Download Reel"; btn.disabled = false;
+            btn.innerText = "Download";
+            btn.disabled = false;
         }
     </script>
 </body>
