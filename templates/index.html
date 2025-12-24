@@ -29,7 +29,7 @@
 
     <div class="main-card">
         <h1>XCRYPT TECH</h1>
-        <p class="subtitle">Download Instagram Reels Instantly</p>
+        <p class="subtitle">Old School Reel Downloader</p>
         
         <input type="text" id="urlInput" placeholder="Paste link here...">
         <button onclick="downloadVideo()" id="dlBtn">Download Reel</button>
@@ -70,7 +70,7 @@
             const btn = document.getElementById('dlBtn');
             const adR = document.getElementById('adResult');
             
-            if(!url.includes('instagram.com')) return alert("Please paste a valid Instagram link!");
+            if(!url) return alert("Paste link!");
             
             btn.innerText = "Processing..."; btn.disabled = true;
             resDiv.innerHTML = "";
@@ -83,13 +83,14 @@
                 });
                 const data = await response.json();
                 if(data.status === 'success') {
-                    resDiv.innerHTML = `<a href="${data.download_url}" target="_blank" class="download-btn">Save to Gallery</a>`;
+                    // PURANI TECHNIQUE: Direct Video Link kholna
+                    resDiv.innerHTML = `<a href="${data.download_url}" target="_blank" rel="noopener noreferrer" class="download-btn">Save to Gallery</a>`;
                     adR.style.display = 'block';
                 } else {
-                    resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Error: Could not fetch video. Try again.</p>";
+                    resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Error! Link invalid ho sakta hai.</p>";
                 }
             } catch(e) {
-                resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Server Error. Try again later.</p>";
+                resDiv.innerHTML = "<p style='color:red; margin-top:15px;'>Server Error.</p>";
             }
             btn.innerText = "Download Reel"; btn.disabled = false;
         }
